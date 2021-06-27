@@ -1,12 +1,86 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,600&display=swap');
+/*GLOBAL================*/
 *{
     margin: 0;
     border: 0;
     padding: 0;
     box-sizing:border-box
 } 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,600&display=swap');
+:root{
+    --dark-blue: #363f5f;
+}
+.container{
+    width: min(800px, 90vw);
+    margin: 0 auto
+}
 body{
     background: #f0f2f5;
     font-family: 'Poppins' sans-serif
+}
+/*header==================*/
+header{
+    background: #2a4522;
+    color: rgba(255, 255, 255, 0.692);
+    padding: 1em 0 7em 0px;
+    text-align: center;
+}
+header h1{
+    font-weight: 100;
+}
+/*hearder=============*/
+/*balance================*/
+#balance h1{
+    margin-top: -3.4em;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0.4em;
+}
+/*card===============*/
+.card{
+    color: var(--dark-blue);
+    background: #fff;
+    padding: 0.9em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+}
+.card:nth-of-type(3){
+    background: #47b228;
+    color: rgba(250, 250, 250, 0.87);
+}
+.card h2{
+    font-weight: 600;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+.card p{
+    font-size: 1.8em;
+    line-height: 1.3em;
+}
+/*card==============*/
+/*balance=============*/
+t
+/*transaction==========*/
+#transaction{
+    margin-top: 2em;
+}
+#data-table{
+    width: 100%;
+    text-align: left;
+    border-spacing: 0em 0.8em;
+}
+#data-table tr{
+    background: white;
+}
+table thead tr th,table tbody tr td{
+    padding: 1em;
+    border-radius: 5px 0 0px 5px;
+}
+table tbody tr{
+    opacity: 0.5;
+    t
+    transition-duration: 3s;
+}
+table tbody tr:hover{
+    opacity: 1;
 }
