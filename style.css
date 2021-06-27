@@ -62,8 +62,12 @@ header h1{
 t
 /*transaction==========*/
 #transaction{
-    margin-top: 2em;
+    margin-top: 6em;
 }
+#transaction h2{
+    margin: 2em 0 1em 0em
+}
+
 #data-table{
     width: 100%;
     text-align: left;
@@ -75,12 +79,28 @@ t
 table thead tr th,table tbody tr td{
     padding: 1em;
     border-radius: 5px 0 0px 5px;
+    font-size: 1.1em;
+    font-weight: 200;
 }
 table tbody tr{
     opacity: 0.5;
-    t
-    transition-duration: 3s;
+    transition-property: opacity;
+    transition-duration: 1s;
 }
 table tbody tr:hover{
     opacity: 1;
+}
+.gain{
+    color: #00f200;
+}
+.spend{
+    color: #f20000
+}
+/*transaction===========*/
+
+/*footer===============*/
+footer h2{
+    margin: 2em 0;
+    text-align: center;
+    opacity: 0.6;
 }
