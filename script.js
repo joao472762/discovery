@@ -31,8 +31,11 @@ var transactions = [
         description: 'Agua',
         value: -6000,
         date:'28/04/2021'
-    }
+    },
+
+
 ]
+
 let Transaction = {
     incomes(){
         // tem a função de somar todas as entradas 
@@ -54,8 +57,8 @@ const DOM = {
     },
     innerHtmlTransaction(transaction) {
         const Cssclass = transaction.value > 0 ? 'gain' : "spend"
+        
 
-        const amount = Utils.formatCurrecy(transaction.value)
         let html = `
                 <td>
                     ${transaction.description}
@@ -77,17 +80,15 @@ const DOM = {
 for(var cont = 0; cont <= transactions.length; cont ++){
     DOM.addTransaction(transactions[cont])
 }
-console.log('eu estou fazendo um progama para ganahar uma boa grana e para paguar de bacana')
-
 const Utils = {
-    formatCurrecy(value) {
-         const signal = Number(value) < 0 ? "-" : ""
+    formatCurency(value){
+        const signal = Number(value < 0 ? '-' : '')
+        value = String(value).replace(/\D/g, "")
+        value = Number(value) / 100
 
-         value = String(value).replace(/\D/g, "")
-
-         value = Number(value) / 100
-
-         value = value
-
+        value = value.ToLocaleString("pt-BR",{style:"currency",currency:'BRL'})
+        return signal + value
     }
 }
+
+
