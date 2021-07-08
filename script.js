@@ -7,7 +7,7 @@ const modal = {
     }
 }
 
-var transactions = [
+let transactions = [
     {
         id: 1,
         description: 'Luz',
@@ -35,60 +35,35 @@ var transactions = [
 
 
 ]
+let dom = {
 
-let Transaction = {
-    incomes(){
-        // tem a função de somar todas as entradas 
+    newtbody(){
+        var tbody = document.getElementById('tbody')
+        tbody.appendChild(dom.addTransaction())
+    }, 
+
+    addTransaction(transaction){
+        var tr = document.createElement('tr')
+        tr.innerHTML = dom.transactionData(transaction)
+        return tr
     },
-    spend(){
-        // tem a função de somar todos os gastos
-    },
-    total(){
-        // tem a função ser o total entre os meus gastos e as minhas entradas
+    transactionData(transaction){
+        let html = `                       
+            <td>
+                ${transactions.description}
+            </td>
+            <td class="spend">
+                -R$ ${transaction.value}
+            </td>
+            <td>
+                ${transaction.date}
+            </td>
+            <td>
+                <img src="assets/minus.svg" alt="remover">
+             `
+             return html
+
     }
+ 
 }
-const DOM = {
-    ContainerTransaction: document.querySelector('#data-table tbody'),
-
-    addTransaction(transaction, index){
-        const tr = document.createElement('tr')
-        tr.innerHTML = DOM.innerHtmlTransaction(transaction)
-        DOM.ContainerTransaction.appendChild(tr)
-    },
-    innerHtmlTransaction(transaction) {
-        const Cssclass = transaction.value > 0 ? 'gain' : "spend"
-        
-
-        let html = `
-                <td>
-                    ${transaction.description}
-                </td>
-                <td class="${Cssclass}">
-                    ${transaction.value}
-                </td>
-                <td>
-                    ${transaction.date}
-                </td>
-                <td>
-                    <img src="assets/minus.svg" alt="remover">
-                </td>
-            
-                    `
-                    return html
-                }
-}
-for(var cont = 0; cont <= transactions.length; cont ++){
-    DOM.addTransaction(transactions[cont])
-}
-const Utils = {
-    formatCurency(value){
-        const signal = Number(value < 0 ? '-' : '')
-        value = String(value).replace(/\D/g, "")
-        value = Number(value) / 100
-
-        value = value.ToLocaleString("pt-BR",{style:"currency",currency:'BRL'})
-        return signal + value
-    }
-}
-
-
+dom.addTransaction(transactions[0])
