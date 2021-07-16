@@ -6,6 +6,40 @@ const modal = {
         document.querySelector('.modal-overlay').classList.remove('active')
     }
 }
+var newTransaction;
+var gain = 0
+var description;
+var value;
+var amount;
+var date;
+var spend = 0 
+var id = 0
+
+function save(){
+    modal.close();
+
+    description = window.document.querySelector('#descripition').value
+    
+    date = window.document.querySelector('#date').value
+
+    amount = window.document.querySelector('#amount').value
+    amount  = amount * 100
+
+    id ++
+
+    newTransaction = createNewTrasation(id,description, amount,reverse(date))
+
+    transactions.push(newTransaction)
+
+    transactions[transactions.length -1].value <= 0 ? spend += newTransaction.value : gain += newTransaction.value
+    
+    DOM.addTransaction(transactions[transactions.length - 1])
+
+    Transaction.incomes()
+    Transaction.spend()
+    Transaction.total()
+    
+}
 
 var transactions = [
     {
@@ -14,37 +48,49 @@ var transactions = [
         value: -50000,
         date: '30/03/2021'
     },
-    {
-        id:2,
-        description: 'Criação de Web site',
-        value: 500000,
-        date:'02/42/2021'
-    },
-    {
-        id:3,
-        description: 'Internet',
-        value: -20000,
-        date:'28/02/2021'
-    },
-    {
-        id: 4,
-        description: 'Agua',
-        value: -6000,
-        date:'28/04/2021'
-    },
-
+    
 
 ]
+function createNewTrasation(id=0, description='', value=0, date){
+    return{
+        id,
+        description,
+        value,
+        date
+    }
+}
+
+
+for(key in transactions){
+    transactions[key].value <= 0 ?
+    spend += transactions[key].value : gain += transactions[key].value
+    
+
+}
+
+const Utils = {
+    formatCurency(value){
+        var formatValue = value / 100
+        formatValue = formatValue.toLocaleString('pt-BR',{style: 'currency', currency: 'BRl'})
+        return formatValue
+
+    }
+}
 
 let Transaction = {
     incomes(){
         // tem a função de somar todas as entradas 
+        window.document.querySelector('#amounts').innerHTML = `${Utils.formatCurency(gain)}`
+        
+
     },
     spend(){
         // tem a função de somar todos os gastos
+        window.document.querySelector('#spend').innerHTML = (`${Utils.formatCurency(spend)}`)
     },
     total(){
         // tem a função ser o total entre os meus gastos e as minhas entradas
+        window.document.querySelector('#total').innerHTML = ` ${Utils.formatCurency(gain+spend)}`
     }
 }
 const DOM = {
@@ -64,7 +110,7 @@ const DOM = {
                     ${transaction.description}
                 </td>
                 <td class="${Cssclass}">
-                    ${transaction.value}
+                    ${Utils.formatCurency(transaction.value)}
                 </td>
                 <td>
                     ${transaction.date}
@@ -77,18 +123,16 @@ const DOM = {
                     return html
                 }
 }
+
+Transaction.incomes()
+Transaction.spend()
+Transaction.total()
+
 for(var cont = 0; cont <= transactions.length; cont ++){
     DOM.addTransaction(transactions[cont])
 }
-const Utils = {
-    formatCurency(value){
-        const signal = Number(value < 0 ? '-' : '')
-        value = String(value).replace(/\D/g, "")
-        value = Number(value) / 100
 
-        value = value.ToLocaleString("pt-BR",{style:"currency",currency:'BRL'})
-        return signal + value
-    }
-}
+
+
 
 

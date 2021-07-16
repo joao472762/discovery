@@ -22,8 +22,7 @@
                     <span>Entradas</span>
                     <img src="assets/income.svg" alt="Entradas">
                 </h2>
-                <p>
-                    R$ 5.000,00
+                <p id="amounts">
                 </p>
             </div>
             <div class="card">
@@ -31,14 +30,14 @@
                     <span>Saídas</span>
                     <img src="assets/expense.svg" alt="Saídas">
                 </h2>
-                <p>R$ 2.000,00</p>
+                <p id="spend"></p>
             </div>
             <div class="card">
                 <h2>
                     <span>Total</span>
                     <img src="assets/total.svg" alt="total">
                 </h2>
-                <p>R$ 3.000,00
+                <p id= total >
                 </p>
             </div>
         </section>
@@ -92,7 +91,7 @@
                     </div>
                     <div id=actions>
                         <button onclick="modal.close()">cancelar</button>
-                        <input type="submit" value="Salvar" onclick="ToSave.data()">
+                        <input type="submit" value="Salvar" onclick="save()">
                     </div>
                 </form>
             </div>
