@@ -131,6 +131,11 @@ Transaction.total()
 for(var cont = 0; cont <= transactions.length; cont ++){
     DOM.addTransaction(transactions[cont])
 }
+const Form = {
+    submit(event){
+        event.preventDefault()
+    }
+}
 
 
 
