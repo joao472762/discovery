@@ -117,6 +117,18 @@ table tbody tr td:last-child, table thead tr th:last-child{
 .gain{
     color: #00f200;
 }
+thead tr th:nth-of-type(2){
+    color: #00e200;
+    text-align: center;
+    
+    
+}
+tr td:nth-of-type(2){
+    width: 120px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+}
 .spend{
     color: #f20000
 }
@@ -151,6 +163,7 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 29;
 }
 .modal-overlay.active{
     opacity: 1;
@@ -190,9 +203,14 @@ small{
     transition-property: background-color;
     transition-duration: 0.8s;
 }
-button{
-    font-size: 1em;
-    width: 40%;
+#cancel{
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: 400;
+    width: 50%;
+    padding-top: 10px;
     border: 1px solid #f20000;
     color: #f20000;
     opacity: 0.4;
@@ -200,7 +218,7 @@ button{
     transition-property: opacity;
     transition-duration: 0.5s;
 }
-button:hover{
+#cancel:hover{
     opacity: 1;
 }
 #actions input:hover{

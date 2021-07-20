@@ -22,7 +22,7 @@
                     <span>Entradas</span>
                     <img src="assets/income.svg" alt="Entradas">
                 </h2>
-                <p>
+                <p id="displayAmount">
                     R$ 5.000,00
                 </p>
             </div>
@@ -31,14 +31,14 @@
                     <span>Saídas</span>
                     <img src="assets/expense.svg" alt="Saídas">
                 </h2>
-                <p>R$ 2.000,00</p>
+                <p id="displaySpend">R$ 2.000,00</p>
             </div>
             <div class="card">
                 <h2>
                     <span>Total</span>
                     <img src="assets/total.svg" alt="total">
                 </h2>
-                <p>R$ 3.000,00
+                <p id='displayTotal'>R$ 3.000,00
                 </p>
             </div>
         </section>
@@ -61,8 +61,7 @@
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    
-                </tbody>
+                                 </tbody>
             </table>
         </section>
     </main>
@@ -70,7 +69,7 @@
         <div class="modal">
             <div id="form">
                 <h2>Nova transação</h2>
-                <form action="">
+                <form action="" onsubmit="Format.submit()">
                     <div class="input-group">
                         <label for="descripition">
                             <span class="h-r">Descrição</span>
@@ -91,8 +90,9 @@
                         </label>
                     </div>
                     <div id=actions>
-                        <button onclick="modal.close()">cancelar</button>
-                        <input type="submit" value="Salvar" onclick="ToSave.data()">
+                        <div  onclick="modal.close()" id="cancel">cancelar</div>
+                    
+                        <input type="submit" value="Salvar" >
                     </div>
                 </form>
             </div>
