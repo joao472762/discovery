@@ -7,21 +7,11 @@ const modal = {
         document.querySelector('.modal-overlay').classList.remove('active')
     }
 }
-const Storagee = {
-
-    get(){
-        return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
-    },
-
-    set(transactions){
-        localStorage.setItem("dev.finances:transactions",JSON.stringify(transactions))
-    }
-}
-let transactions = [
+let transactions = JSON.parse(localStorage.getItem("devFinances")) || []
 
 
 
-]
+
 let Utils = {
     formatCureecy(value){
         value = value / 100
@@ -42,6 +32,7 @@ let Dom = {
     },
     remove(index){
         transactions.splice(index,1)
+        localStorage.setItem('devFinances', JSON.stringify(transactions))
         app.update()
     },
 
@@ -195,6 +186,7 @@ let Format = {
 
         let list = Format.newTransaction(description,amount,date)
         transactions.push(list)
+        localStorage.setItem('devFinances', JSON.stringify(transactions))
 
     
     

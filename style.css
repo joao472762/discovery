@@ -26,6 +26,9 @@ body{
 .h-r{
     position: absolute;
     opacity: 0;
+    display: none;
+
+
 }
 
 /*header==================*/
