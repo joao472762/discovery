@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>DevFinaces</title>
 </head>
 <body>
@@ -14,26 +15,50 @@
 
         <section id="cards">
 
-            <div class="cards">
-                <p>entradas <img src="assets/income.svg" alt=""></p>
-                <p>R$ 5.0000 </p>
+            <div class="card">
+                <div class="information"><span>Entradas</span><img src="assets/income.svg" alt=""></div>
+                <p id="displayAmount"></p>
             </div>
 
-            <div class="cards">
-                <p>Saídas <img src="assets/expense.svg" alt=""></p>
-                <p>R$ -2.0000 </p>
+            <div class="card">
+                <div class="information">Saídas <img src="assets/expense.svg" alt=""></div>
+                <p id="displaySpends"></p>
             </div>
 
-            <div class="cards">
-                <p>Total<img src="assets/total.svg" alt=""></p>
-                <p>R$ 3.0000 </p>
+            <div class="card">
+                <div class="information">
+                    <span>Total</span><img src="assets/total.svg" alt="">
+                </div>
+                <p id='displayTotal'></p>
             </div>
 
         </section>
 
 
-        <div class="newTrasction">+ Nova Transação</div>
+        <div id="newTransaction" onclick="modal.active()">+ Nova Transação</div>
 
+        <section class="modalOverlay ">
+            <p>
+                Nova Transação
+            </p>
+            <form action="">
+                <p>
+                    Nova Transação
+                </p>
+
+                <div class="fields">
+                    <input type="text" placeholder="Descrição">
+                    <input type="number" id="value" placeholder="R$ 00.00">
+                    <small>Use o sinal -(Negativo para as despeças e ,(Virgula) para as casas decimais, caso o valor for positivo basta apenas digitar o valor</small>
+                    <input type="date" name="" id="">
+                </div>
+
+                <div id='actions'>
+                    <input type="button" value="Cancelar" onclick="modal.remove()">
+                    <input type="submit" value="Salvar">
+                </div>
+            </form>
+        </section>
 
         <table>
 
@@ -45,27 +70,20 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id='tbody'>
+
                 <tr>
                     <td>Conta de luz</td>
-                    <td>-R$ 80.00</td>
+
+                    <td class="spend">-R$ 80.00</td>
+
                     <td>30/3/2021</td>
+
                     <td><img src="assets/minus.svg" alt=""></td>
+
                 </tr>
 
-                <tr>
-                    <td>Salário</td>
-                    <td>R$ 2000,00</td>
-                    <td>30/3/2021</td>
-                    <td><img src="assets/minus.svg" alt=""></td>
-                </tr>
-
-                <tr>
-                    <td>Aluguel</td>
-                    <td>-R$ 800.00</td>
-                    <td>30/3/2021</td>
-                    <td><img src="assets/minus.svg" alt=""></td>
-                </tr>
+               
             </tbody>
 
         </table>
@@ -73,5 +91,6 @@
             <p>dev.finace$</p>
         </footer>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
